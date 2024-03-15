@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="Lab2.Views.PersonInfoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Lab2.Views"
+             xmlns:controls="clr-namespace:Lab2.Tools.Controls"
+             mc:Ignorable="d" 
+             IsEnabled="{Binding IsEnabled, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+             d:DesignHeight="550" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Enter your data" Foreground="#FF103754" FontSize="25" FontFamily="Arial Rounded MT Bold"></TextBlock>
+        <controls:TextBoxWithCaption Grid.Row="1" Grid.Column="0" Margin="20, 0, 60, 0" Caption="Name" Text="{Binding Name, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"></controls:TextBoxWithCaption>
+        <controls:TextBoxWithCaption Grid.Row="2" Grid.Column="0" Margin="20, 0, 60, 0" Caption="Surname" Text="{Binding Surname, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"></controls:TextBoxWithCaption>
+        <controls:TextBoxWithCaption Grid.Row="1" Grid.Column="1" Margin="20, 0, 60, 0" Caption="Email" Text="{Binding Email, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"></controls:TextBoxWithCaption>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,5,5,2" Text="Date of birth" FontSize="18" FontFamily="Alef" Foreground="#FF39414D"/>
+            <DatePicker Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="20,0,60,5" FontSize="15" SelectedDate="{Binding BirthDate, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"></DatePicker>
+        </Grid>
+        <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Height="40" Width="140" VerticalAlignment="Center" Content="Proceed" Background="#FF103754" FontFamily="Arial Rounded MT Bold" Foreground="White" FontSize="16" BorderBrush="{x:Null}" Command="{Binding ProceedCommand}"></Button>
+        <controls:TextBlockWithCaption Grid.Row="4" Grid.Column="0" Caption="Name" Text="{Binding Name, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></controls:TextBlockWithCaption>
+        <controls:TextBlockWithCaption Grid.Row="5" Grid.Column="0" Caption="Surname" Text="{Binding Surname, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></controls:TextBlockWithCaption>
+        <controls:TextBlockWithCaption Grid.Row="6" Grid.Column="0" Caption="Email" Text="{Binding Email, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></controls:TextBlockWithCaption>
+        <controls:TextBlockWithCaption Grid.Row="7" Grid.Column="0" Caption="Birth Date" Text="{Binding BirthDate, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, StringFormat=dd MMMM yyyy}"></controls:TextBlockWithCaption>
+        <controls:TextBlockWithCaption Grid.Row="4" Grid.Column="1" Caption="Is Adult" Text="{Binding IsAdult, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></controls:TextBlockWithCaption>
+        <controls:TextBlockWithCaption Grid.Row="5" Grid.Column="1" Caption="Sun Sign" Text="{Binding SunSign, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></controls:TextBlockWithCaption>
+        <controls:TextBlockWithCaption Grid.Row="6" Grid.Column="1" Caption="Chinese Sign" Text="{Binding ChineseSign, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></controls:TextBlockWithCaption>
+        <controls:TextBlockWithCaption Grid.Row="7" Grid.Column="1" Caption="Is Birthday" Text="{Binding IsBirthday, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></controls:TextBlockWithCaption>
+    </Grid>
+</UserControl>
