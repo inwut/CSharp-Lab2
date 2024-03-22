@@ -6,9 +6,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Lab2.Exceptions;
 using Lab2.Models;
 using Lab2.Tools;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Lab2.ViewModels
 {
@@ -143,7 +143,7 @@ namespace Lab2.ViewModels
                 IsEnabled = false;
                 _person = await Task.Run(() => new Person(_name, _surname, _email, _birthDate));
             }
-            catch (ArgumentException ex)
+            catch (PersonValidationException ex)
             {
 
                 _person = null;

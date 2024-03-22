@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Lab2.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -111,9 +113,27 @@ namespace Lab2.Models
             _sunSign = GetSunZodiacSign();
             _chineseSign = GetChineseZodiacSign();
             int age = CalculateAge();
-            if (age < 0 || age > 135)
+            if (age < 0)
             {
-                throw new ArgumentException("Wrong Age");
+                throw new FutureBirthDateException("Too late birth date!");
+            }
+            if(age > 135)
+            {
+                throw new EarlyBirthDateException("Too early birth date!");
+            }
+            Regex correctName = new Regex("^[A-Z](?:[a-z.,'_ -]*[a-zA-Z0-9])?$");
+            if (!correctName.IsMatch(_name))
+            {
+                throw new InvalidNameException("Invalid name!");
+            }
+            if (!correctName.IsMatch(_surname))
+            {
+                throw new InvalidNameException("Invalid surname!");
+            }
+            Regex correctEmail = new Regex("^\\S+@\\S+\\.\\S+$");
+            if(!correctEmail.IsMatch(_email))
+            {
+                throw new InvalidEmailException("Invalid email!");
             }
             Thread.Sleep(3000);
         }
