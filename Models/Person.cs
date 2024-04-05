@@ -135,7 +135,6 @@ namespace Lab2.Models
             {
                 throw new InvalidEmailException("Invalid email!");
             }
-            Thread.Sleep(3000);
         }
 
         public Person(string name, string surname, string email) : this(name, surname, email, DateTime.MinValue)

@@ -12,6 +12,6 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <TextBlock Name="TbCaption" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,5,5,2" Text="Caption" FontSize="18" FontFamily="Alef" Foreground="#FF39414D"/>
-        <TextBox Name="TbValue" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="25" Margin="0,0,5,5" FontSize="14" Text="{Binding ElementName=textBoxWithCaption, Path=Text, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Name="TbValue" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="25" Margin="0,0,5,5" FontSize="14" Text="{Binding ElementName=textBoxWithCaption, Path=Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </UserControl>

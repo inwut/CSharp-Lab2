@@ -4,10 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Lab2.Views"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:controls="clr-namespace:Lab2.Tools.Controls"
              mc:Ignorable="d" 
              IsEnabled="{Binding IsEnabled, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
-             d:DesignHeight="550" d:DesignWidth="800">
+             d:DesignHeight="950" d:DesignWidth="870">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"></RowDefinition>
@@ -18,31 +19,129 @@
             <RowDefinition Height="70"></RowDefinition>
             <RowDefinition Height="70"></RowDefinition>
             <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Enter your data" Foreground="#FF103754" FontSize="25" FontFamily="Arial Rounded MT Bold"></TextBlock>
-        <controls:TextBoxWithCaption Grid.Row="1" Grid.Column="0" Margin="20, 0, 60, 0" Caption="Name" Text="{Binding Name, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"></controls:TextBoxWithCaption>
-        <controls:TextBoxWithCaption Grid.Row="2" Grid.Column="0" Margin="20, 0, 60, 0" Caption="Surname" Text="{Binding Surname, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"></controls:TextBoxWithCaption>
-        <controls:TextBoxWithCaption Grid.Row="1" Grid.Column="1" Margin="20, 0, 60, 0" Caption="Email" Text="{Binding Email, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"></controls:TextBoxWithCaption>
+        <controls:TextBoxWithCaption Grid.Row="1" Grid.Column="0" Margin="20, 0, 60, 0" Caption="Name" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></controls:TextBoxWithCaption>
+        <controls:TextBoxWithCaption Grid.Row="2" Grid.Column="0" Margin="20, 0, 60, 0" Caption="Surname" Text="{Binding Surname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></controls:TextBoxWithCaption>
+        <controls:TextBoxWithCaption Grid.Row="1" Grid.Column="1" Margin="20, 0, 60, 0" Caption="Email" Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></controls:TextBoxWithCaption>
         <Grid Grid.Row="2" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,5,5,2" Text="Date of birth" FontSize="18" FontFamily="Alef" Foreground="#FF39414D"/>
-            <DatePicker Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="20,0,60,5" FontSize="15" SelectedDate="{Binding BirthDate, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"></DatePicker>
+            <DatePicker Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="20,0,60,5" FontSize="15" SelectedDate="{Binding BirthDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></DatePicker>
         </Grid>
-        <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Height="40" Width="140" VerticalAlignment="Center" Content="Proceed" Background="#FF103754" FontFamily="Arial Rounded MT Bold" Foreground="White" FontSize="16" BorderBrush="{x:Null}" Command="{Binding ProceedCommand}"></Button>
-        <controls:TextBlockWithCaption Grid.Row="4" Grid.Column="0" Caption="Name" Text="{Binding Name, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></controls:TextBlockWithCaption>
-        <controls:TextBlockWithCaption Grid.Row="5" Grid.Column="0" Caption="Surname" Text="{Binding Surname, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></controls:TextBlockWithCaption>
-        <controls:TextBlockWithCaption Grid.Row="6" Grid.Column="0" Caption="Email" Text="{Binding Email, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></controls:TextBlockWithCaption>
-        <controls:TextBlockWithCaption Grid.Row="7" Grid.Column="0" Caption="Birth Date" Text="{Binding BirthDate, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, StringFormat=dd MMMM yyyy}"></controls:TextBlockWithCaption>
-        <controls:TextBlockWithCaption Grid.Row="4" Grid.Column="1" Caption="Is Adult" Text="{Binding IsAdult, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></controls:TextBlockWithCaption>
-        <controls:TextBlockWithCaption Grid.Row="5" Grid.Column="1" Caption="Sun Sign" Text="{Binding SunSign, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></controls:TextBlockWithCaption>
-        <controls:TextBlockWithCaption Grid.Row="6" Grid.Column="1" Caption="Chinese Sign" Text="{Binding ChineseSign, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></controls:TextBlockWithCaption>
-        <controls:TextBlockWithCaption Grid.Row="7" Grid.Column="1" Caption="Is Birthday" Text="{Binding IsBirthday, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></controls:TextBlockWithCaption>
+        <Button Grid.Row="3" Grid.Column="0" Height="40" Width="140" VerticalAlignment="Center" Content="Proceed" Background="#FF103754" FontFamily="Arial Rounded MT Bold" Foreground="White" FontSize="16" BorderBrush="{x:Null}" Command="{Binding ProceedCommand}"></Button>
+        <Button Grid.Row="3" Grid.Column="1" Height="40" Width="140" VerticalAlignment="Center" Content="Cancel" Background="#FF103754" FontFamily="Arial Rounded MT Bold" Foreground="White" FontSize="16" BorderBrush="{x:Null}" Command="{Binding CancelCommand}"></Button>
+        <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Text="All users" Foreground="#FF103754" FontSize="25" FontFamily="Arial Rounded MT Bold"></TextBlock>
+        <DataGrid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="4" Margin="15, 0" HorizontalAlignment="Stretch" ItemsSource="{Binding PersonsList, Mode=OneWay}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="True" Header="Name" Binding="{Binding Name}" />
+                <DataGridTextColumn IsReadOnly="True" Header="Surnam" Binding="{Binding Surname}" />
+                <DataGridTextColumn IsReadOnly="True" Header="Email" Binding="{Binding Email}" />
+                <DataGridTextColumn IsReadOnly="True" Header="Birth date" Binding="{Binding BirthDate}" />
+                <DataGridTextColumn IsReadOnly="True" Header="Is adult" Binding="{Binding IsAdult}" />
+                <DataGridTextColumn IsReadOnly="True" Header="Is birthday" Binding="{Binding IsBirthday}" />
+                <DataGridTextColumn IsReadOnly="True" Header="Zodiac" Binding="{Binding SunSign}" />
+                <DataGridTextColumn IsReadOnly="True" Header="Chinese zodiac" Binding="{Binding ChineseSign}" />
+                <DataGridTemplateColumn Header="Delete">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Delete" Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext.DeleteCommand}" CommandParameter="{Binding}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Update">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Update" Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext.UpdateCommand}" CommandParameter="{Binding}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Filters" Foreground="#FF103754" FontSize="25" FontFamily="Arial Rounded MT Bold"></TextBlock>
+        <controls:TextBoxWithCaption Grid.Row="10" Grid.Column="0" Margin="20, 0, 60, 0" Caption="Name" Text="{Binding FilterName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></controls:TextBoxWithCaption>
+        <controls:TextBoxWithCaption Grid.Row="11" Grid.Column="0" Margin="20, 0, 60, 0" Caption="Surname" Text="{Binding FilterSurname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></controls:TextBoxWithCaption>
+        <controls:TextBoxWithCaption Grid.Row="12" Grid.Column="0" Margin="20, 0, 60, 0" Caption="Email" Text="{Binding FilterEmail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></controls:TextBoxWithCaption>
+        <Grid Grid.Row="10" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,5,5,2" Text="Date from" FontSize="18" FontFamily="Alef" Foreground="#FF39414D"/>
+            <DatePicker Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" SelectedDate="{Binding FilterBirthDateFrom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="57,0,0,0"/>
+            <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,5,5,2" Text="Date to" FontSize="18" FontFamily="Alef" Foreground="#FF39414D"/>
+            <DatePicker Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" SelectedDate="{Binding FilterBirthDateTo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="57,0,0,0"/>
+        </Grid>
+        <Grid Grid.Row="11" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <ComboBox Grid.Row="0" Grid.Column="0" Height="30" Margin="20, 10" SelectedItem="{Binding FilterSunSign, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <sys:String>All</sys:String>
+                <sys:String>Capricorn</sys:String>
+                <sys:String>Aquarius</sys:String>
+                <sys:String>Pisces</sys:String>
+                <sys:String>Aries</sys:String>
+                <sys:String>Taurus</sys:String>
+                <sys:String>Gemini</sys:String>
+                <sys:String>Cancer</sys:String>
+                <sys:String>Leo</sys:String>
+                <sys:String>Virgo</sys:String>
+                <sys:String>Libra</sys:String>
+                <sys:String>Scorpio</sys:String>
+                <sys:String>Sagittarius</sys:String>
+                <sys:String>Capricorn</sys:String>
+            </ComboBox>
+            <ComboBox Grid.Row="0" Grid.Column="1" Height="30" Margin="20, 10" SelectedItem="{Binding FilterChineseSign, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <sys:String>All</sys:String>
+            <sys:String>Monkey</sys:String>
+            <sys:String>Rooster</sys:String>
+            <sys:String>Dog</sys:String>
+            <sys:String>Pig</sys:String>
+            <sys:String>Rat</sys:String>
+            <sys:String>Ox</sys:String>
+            <sys:String>Tiger</sys:String>
+            <sys:String>Rabbit</sys:String>
+            <sys:String>Dragon</sys:String>
+            <sys:String>Snake</sys:String>
+            <sys:String>Horse</sys:String>
+                <sys:String>Sheep</sys:String>
+            </ComboBox>
+        </Grid>
+        <Grid Grid.Row="12" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <ComboBox Grid.Row="0" Grid.Column="0" Height="30" Margin="20, 10" SelectedItem="{Binding FilterIsAdult, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <sys:String>Both</sys:String>
+                <sys:String>Is Adult</sys:String>
+                <sys:String>Isn't Adult</sys:String>
+            </ComboBox>
+            <ComboBox Grid.Row="0" Grid.Column="1" Height="30" Margin="20, 10" SelectedItem="{Binding FilterIsBirthday, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <sys:String>Both</sys:String>
+                <sys:String>Is Birthday</sys:String>
+                <sys:String>Isn't Birthday</sys:String>
+            </ComboBox>
+        </Grid>
+        <Button Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="2" Height="40" Width="140" VerticalAlignment="Center" Content="Filter" Background="#FF103754" FontFamily="Arial Rounded MT Bold" Foreground="White" FontSize="16" BorderBrush="{x:Null}" Command="{Binding FilterCommand}"></Button>
     </Grid>
 </UserControl>

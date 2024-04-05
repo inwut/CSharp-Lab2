@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Lab2"
         xmlns:views="clr-namespace:Lab2.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800" MinHeight="580" MinWidth="450">
+        Title="MainWindow" Height="950" Width="870" MinHeight="580" MinWidth="450">
     <Grid>
         <views:PersonInfoView></views:PersonInfoView>
     </Grid>
