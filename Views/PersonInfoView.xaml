@@ -45,12 +45,12 @@
         <Button Grid.Row="3" Grid.Column="0" Height="40" Width="140" VerticalAlignment="Center" Content="Proceed" Background="#FF103754" FontFamily="Arial Rounded MT Bold" Foreground="White" FontSize="16" BorderBrush="{x:Null}" Command="{Binding ProceedCommand}"></Button>
         <Button Grid.Row="3" Grid.Column="1" Height="40" Width="140" VerticalAlignment="Center" Content="Cancel" Background="#FF103754" FontFamily="Arial Rounded MT Bold" Foreground="White" FontSize="16" BorderBrush="{x:Null}" Command="{Binding CancelCommand}"></Button>
         <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Text="All users" Foreground="#FF103754" FontSize="25" FontFamily="Arial Rounded MT Bold"></TextBlock>
-        <DataGrid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="4" Margin="15, 0" HorizontalAlignment="Stretch" ItemsSource="{Binding PersonsList, Mode=OneWay}" AutoGenerateColumns="False">
+        <DataGrid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="4" HorizontalAlignment="Center" ItemsSource="{Binding PersonsList, Mode=OneWay}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn IsReadOnly="True" Header="Name" Binding="{Binding Name}" />
                 <DataGridTextColumn IsReadOnly="True" Header="Surnam" Binding="{Binding Surname}" />
                 <DataGridTextColumn IsReadOnly="True" Header="Email" Binding="{Binding Email}" />
-                <DataGridTextColumn IsReadOnly="True" Header="Birth date" Binding="{Binding BirthDate}" />
+                <DataGridTextColumn IsReadOnly="True" Header="Birth date" Binding="{Binding BirthDate, StringFormat=dd/MM/yyyy}" />
                 <DataGridTextColumn IsReadOnly="True" Header="Is adult" Binding="{Binding IsAdult}" />
                 <DataGridTextColumn IsReadOnly="True" Header="Is birthday" Binding="{Binding IsBirthday}" />
                 <DataGridTextColumn IsReadOnly="True" Header="Zodiac" Binding="{Binding SunSign}" />

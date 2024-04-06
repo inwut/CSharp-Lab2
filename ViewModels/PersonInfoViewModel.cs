@@ -25,7 +25,7 @@ namespace Lab2.ViewModels
         private string _name;
         private string _surname;
         private string _email;
-        private DateTime _birthDate;
+        private DateTime _birthDate = new DateTime(2000, 1, 1);
         private bool _isAdult;
         private bool _isBirthday;
         private string _sunSign;
